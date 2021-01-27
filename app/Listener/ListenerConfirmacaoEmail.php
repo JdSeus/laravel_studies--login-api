@@ -3,8 +3,10 @@
 namespace App\Listener;
 
 use App\Events\EventNovoRegistro;
+use App\Mail\EmailRegistroConfirmacao;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Mail;
 
 class ListenerConfirmacaoEmail
 {
@@ -26,6 +28,7 @@ class ListenerConfirmacaoEmail
      */
     public function handle(EventNovoRegistro $event)
     {
-        //
+        Mail::to($event->user)
+            ->send(new EmailRegistroConfirmacao($event->user));
     }
 }

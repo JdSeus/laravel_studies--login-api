@@ -13,6 +13,8 @@ Route::prefix('auth')->group(function() {
     Route::post('registro', [AutenticadorControlador::class, 'registro']);
     Route::post('login', [AutenticadorControlador::class, 'login']);
 
+    Route::get('registro/ativar/{id}/{token}', [AutenticadorControlador::class, 'ativarregistro']);
+
     Route::middleware('auth:api')->group(function() {
         Route::post('logout', [AutenticadorControlador::class, 'logout']);
     });
