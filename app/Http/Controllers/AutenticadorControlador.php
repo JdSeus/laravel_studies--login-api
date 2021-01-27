@@ -47,7 +47,7 @@ class AutenticadorControlador extends Controller
             ], 401);
         }
         $user = $request->user();
-        $token = $user->createToken('Token de acesso')->accessToken();
+        $token = $user->createToken('Token de acesso')->accessToken;
 
         return response()->json([
             'token' => $token
