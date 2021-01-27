@@ -32,7 +32,7 @@ class EmailRegistroConfirmacao extends Mailable
 
         return $this->view('emails.registroconfirmacao')->with([
             'nome' => $this->user->name,
-            'nome' => $this->user->email,
+            'email' => $this->user->email,
             'link' => $link,
             'datahora' => now()->setTimeZone('America/Sao_Paulo')->format('d-m-Y H:i:s'),
         ]);
